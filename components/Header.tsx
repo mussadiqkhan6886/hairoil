@@ -28,7 +28,7 @@ const Header = () => {
         <div className='flex gap-7'>          
           <FiSearch />
           <FiUser className='hidden md:inline-block' />
-          <Link href={"/cart"}>
+          <Link href={"/Cart"}>
             <FiShoppingCart />
           </Link>
           <FiMenu onClick={() => setShowMenu(true)} className='inline-block md:hidden' />
