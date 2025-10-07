@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import Product from "@/components/Product";
 import Reviews from "@/components/Testiominals";
 import WhyUs from "@/components/WhyUs";
-import Image from "next/image";
 
 export default function Home() {
   return (

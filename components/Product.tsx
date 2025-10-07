@@ -4,6 +4,7 @@ import { instrumental, styleScript } from '@/fonts/font';
 import Link from 'next/link';
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const Product = () => {
   const fadeInLeft = {
@@ -41,7 +42,9 @@ const Product = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
-          <img
+          <Image
+            width={150}
+            height={150}
             src="/oil (10).jpg"
             alt="Herbal Hair Oil Bottle"
             className="w-full md:w-[80%] rounded-3xl shadow-lg"

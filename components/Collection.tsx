@@ -1,7 +1,8 @@
 import { instrumental, styleScript } from '@/fonts/font'
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
+import { FiArrowRight } from 'react-icons/fi'
 
 const Collection = () => {
   return (
@@ -15,7 +16,9 @@ const Collection = () => {
 
       {/* Card 3 */}
       <div className="bg-primary h-full max-w-[400px] overflow-hidden">
-        <img
+        <Image
+          width={400}
+          height={400}
           src="/oil (1).jpg"
           alt="Coconut Hair Oil"
           className="w-full h-[65%] object-cover object-bottom hover:scale-105 transition-all duration-200"

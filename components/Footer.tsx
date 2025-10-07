@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FiFacebook, FiInstagram, FiTwitter, FiMail } from "react-icons/fi";
 
 const Footer = () => {
@@ -17,10 +18,10 @@ const Footer = () => {
         <div>
           <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
           <ul className="space-y-2 text-primary/90">
-            <li><a href="/" className="hover:text-white transition">Home</a></li>
-            <li><a href="/products" className="hover:text-white transition">Products</a></li>
-            <li><a href="/about" className="hover:text-white transition">About</a></li>
-            <li><a href="/contact" className="hover:text-white transition">Contact</a></li>
+            <li><Link href="/" className="hover:text-white transition">Home</Link></li>
+            <li><Link href="/products" className="hover:text-white transition">Products</Link></li>
+            <li><Link href="/about" className="hover:text-white transition">About</Link></li>
+            <li><Link href="/contact" className="hover:text-white transition">Contact</Link></li>
           </ul>
         </div>
 

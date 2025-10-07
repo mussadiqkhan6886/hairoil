@@ -1,6 +1,6 @@
 'use client';
 
-import { cormorant, styleScript } from '@/fonts/font';
+import { styleScript } from '@/fonts/font';
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { FiUser, FiSearch, FiShoppingCart, FiMenu } from "react-icons/fi";
