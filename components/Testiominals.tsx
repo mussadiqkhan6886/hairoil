@@ -61,15 +61,15 @@ const reviews = [
 
 const Reviews = () => {
   return (
-    <section className="py-25 px-28 bg-primary/10">
+    <section className="py-25 px-6 md:px-16 lg:px-28 bg-primary/10">
       <div className="text-center mb-10">
-        <h2 className={`${styleScript.className} text-6xl text-main`}>What Our Customers Say</h2>
-        <p className="text-font mt-3">
+        <h2 className={`${styleScript.className} text-4xl md:text-6xl text-main`}>What Our Customers Say</h2>
+        <p className="text-font text-sm md:text-base mt-3">
           Real experiences from people who’ve fallen in love with Iqzaib Essence.
         </p>
       </div>
 
-      <div className="container mx-auto px-5">
+      <div className="container mx-auto px-0 md:px-5">
         <Swiper
           modules={[Navigation, Autoplay]}
           spaceBetween={30}
