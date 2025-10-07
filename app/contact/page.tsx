@@ -6,7 +6,7 @@ import { instrumental } from '@/fonts/font';
 
 const Contact = () => {
   return (
-    <main className="bg-[#F8FAF8] text-[#1B4D3E] py-20 px-6 md:px-20">
+    <main className="bg-[#F8FAF8] text-[#1B4D3E] py-20 px-0 md:px-20">
       {/* Section Header */}
       <section className="text-center mb-12">
         <h1 className={`${instrumental.className} text-4xl md:text-5xl font-bold mb-3`}>
@@ -58,7 +58,7 @@ const Contact = () => {
         </form>
 
         {/* Right Side - Contact Info */}
-        <div className="space-y-8 pt-15">
+        <div className="space-y-8 pt-15 px-6">
           <div className="flex items-start gap-4">
             <FiMapPin className="text-3xl text-[#1B4D3E]" />
             <div>
