@@ -2,7 +2,7 @@
 
 import { instrumental, styleScript } from '@/fonts/font';
 import React from 'react';
-import { easeOut, motion } from 'framer-motion';
+import { motion, easeOut } from 'framer-motion'; // ✅ import easing preset
 
 const WhyUs = () => {
   // animation variants for smoother control
@@ -14,7 +14,7 @@ const WhyUs = () => {
       transition: {
         delay: i * 0.2, // stagger each card
         duration: 0.6,
-        ease: 'easeOut',
+        ease: easeOut, // ✅ FIXED: imported easing function
       },
     }),
   };
@@ -70,7 +70,7 @@ const WhyUs = () => {
         className="mt-10 rounded-4xl"
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, ease: easeOut }}
+        transition={{ duration: 0.8, ease: easeOut }} // ✅ fixed here too
         viewport={{ once: true }}
       />
     </section>
