@@ -69,7 +69,7 @@ const page = async ({ params }: ProductPageProps) => {
             <ul className=" pl-5">
               <h4 className={`${instrumental.className} text-2xl mb-2`}>Ingredients:</h4>
               {product.ingredients.map((item, i) => (
-                <li className="text-gray-700 inline-block px-1" key={i}>
+                <li className="text-gray-500 inline-block px-1" key={i}>
                   &bull; {item}
                 </li>
               ))}

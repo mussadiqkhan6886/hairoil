@@ -19,10 +19,12 @@ const Header = () => {
             <Link href={"/contact"}>CONTACT</Link>
           </div>
         </div>
-        <div className='flex gap-7'>
+        <div className='flex gap-7'>          
           <FiSearch />
           <FiUser />
-          <FiShoppingCart />
+          <Link href={"/cart"}>
+            <FiShoppingCart />
+          </Link>
         </div>
       </div>
     </header>
