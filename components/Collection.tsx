@@ -30,7 +30,7 @@ const Collection = () => {
             Experience softer, shinier hair with every use.
             Bring life back to dull and damaged hair — naturally.
           </p>
-          <button className='mt-6 py-1.5 w-full  border border-main ' > <Link href={"/collection/oil"}>Visit</Link> <FiArrowRight className='inline-block ml-1' /></button>
+          <button className='mt-6 py-1.5 w-full  border border-main ' > <Link href={"/collections/oil"}>Visit</Link> <FiArrowRight className='inline-block ml-1' /></button>
         </div>
       </div>
     </div>
