@@ -2,7 +2,7 @@
 
 import { instrumental, styleScript } from '@/fonts/font';
 import React from 'react';
-import { motion } from 'framer-motion';
+import { easeOut, motion } from 'framer-motion';
 
 const WhyUs = () => {
   // animation variants for smoother control
@@ -70,7 +70,7 @@ const WhyUs = () => {
         className="mt-10 rounded-4xl"
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
+        transition={{ duration: 0.8, ease: easeOut }}
         viewport={{ once: true }}
       />
     </section>
