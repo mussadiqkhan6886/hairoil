@@ -55,7 +55,7 @@ export default function CartPage() {
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
-    <main className="max-w-6xl mx-auto px-4 py-20">
+    <main className="max-w-6xl mx-auto px-4 py-10 md:py-20">
       <h1 className={`${instrumental.className} text-4xl mb-6`}>Your Cart</h1>
 
       {cart.length === 0 ? (
@@ -69,7 +69,7 @@ export default function CartPage() {
                 key={item.id}
                 className="flex items-center justify-between bg-white p-4 shadow rounded-2xl"
               >
-                <div className="flex items-center space-x-4">
+                <div className="flex flex-col  gap-2 md:flex-row items-center space-x-4">
                   <Image
                     src={item.image}
                     alt={item.name}
@@ -79,28 +79,28 @@ export default function CartPage() {
                   />
                   <div>
                     <h2 className="text-lg font-semibold">{item.name}</h2>
-                    <p className="text-gray-500">Rs. {item.price}</p>
+                    <p className="text-gray-500 text-sm">Rs. {item.price}</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3">
+                <div className="flex items-center mr-2 sm:mr-0 gap-3">
                   <button
                     onClick={() => updateQuantity(item.id, "dec")}
-                    className="px-3 py-1 border rounded-lg"
+                    className=" px-2 md:px-3 py-0.5 md:py-1 border rounded-lg"
                   >
                     −
                   </button>
-                  <span className="text-lg">{item.quantity}</span>
+                  <span className="text-sm lg:text-lg">{item.quantity}</span>
                   <button
                     onClick={() => updateQuantity(item.id, "inc")}
-                    className="px-3 py-1 border rounded-lg"
+                    className=" px-2 md:px-3 py-0.5 md:py-1 border rounded-lg"
                   >
                     +
                   </button>
                 </div>
 
                 <div className="flex flex-col items-end">
-                  <p className="font-semibold">
+                  <p className="font-semibold text-sm text-nowrap md:text-base">
                     Rs. {item.price * item.quantity}
                   </p>
                   <button

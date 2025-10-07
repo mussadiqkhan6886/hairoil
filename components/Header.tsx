@@ -1,10 +1,16 @@
+'use client';
+
 import { cormorant, styleScript } from '@/fonts/font';
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
 import { FiUser, FiSearch, FiShoppingCart, FiMenu } from "react-icons/fi";
+import Menu from './Menu';
 
 
 const Header = () => {
+
+  const [showMenu, setShowMenu] = useState(false)
+
   return (
     <header>
       <div className='bg-main py-2 font-bold text-primary'>
@@ -25,7 +31,8 @@ const Header = () => {
           <Link href={"/cart"}>
             <FiShoppingCart />
           </Link>
-          <FiMenu className='inline-block md:hidden' />
+          <FiMenu onClick={() => setShowMenu(true)} className='inline-block md:hidden' />
+          {showMenu && <Menu setShowMenu={setShowMenu} />}
         </div>
       </div>
     </header>
