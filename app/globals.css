@@ -8,3 +8,28 @@
   --color-font: #2C3E50;
   --color-light-font: #A5C1B2;
 }
+
+
+/* Swiper Navigation Buttons */
+.reviewSwiper .swiper-button-prev,
+.reviewSwiper .swiper-button-next {
+  color: #1B4D3E; /* dark green */
+  background-color: rgba(27, 77, 62, 0.1);
+  padding: 10px;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  transition: all 0.3s ease;
+}
+
+.reviewSwiper .swiper-button-prev:hover,
+.reviewSwiper .swiper-button-next:hover {
+  background-color: #1B4D3E;
+  color: #fff;
+}
+
+.reviewSwiper .swiper-button-prev::after,
+.reviewSwiper .swiper-button-next::after {
+  font-size: 14px; /* smaller arrow */
+  font-weight: 600;
+}

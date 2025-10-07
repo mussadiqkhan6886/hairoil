@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Collections = () => {
+const page = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const Collections = () => {
   )
 }
 
-export default Collections
+export default page
