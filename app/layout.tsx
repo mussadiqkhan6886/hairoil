@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { lato } from "@/fonts/font";
 
 export const metadata: Metadata = {
   title: "Hair oil by iqra",
@@ -14,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased`}
+        className={`${lato.className} antialiased`}
       >
         {children}
       </body>
