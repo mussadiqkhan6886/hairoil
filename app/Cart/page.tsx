@@ -1,5 +1,6 @@
 "use client";
 
+import { instrumental } from "@/fonts/font";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -18,14 +19,14 @@ export default function CartPage() {
       name: "Herbal Hair Oil",
       price: 1200,
       quantity: 1,
-      image: "/images/herbal-oil.jpg",
+      image: "/oil (1).jpg",
     },
     {
       id: 2,
       name: "Organic Shampoo",
       price: 900,
       quantity: 2,
-      image: "/images/shampoo.jpg",
+      image: "/oil (2).jpg",
     },
   ]);
 
@@ -54,8 +55,8 @@ export default function CartPage() {
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
-    <main className="max-w-6xl mx-auto px-4 py-10">
-      <h1 className="text-4xl font-semibold mb-6">Your Cart</h1>
+    <main className="max-w-6xl mx-auto px-4 py-20">
+      <h1 className={`${instrumental.className} text-4xl mb-6`}>Your Cart</h1>
 
       {cart.length === 0 ? (
         <p className="text-gray-500">Your cart is empty.</p>
@@ -77,7 +78,7 @@ export default function CartPage() {
                     className="rounded-xl"
                   />
                   <div>
-                    <h2 className="text-lg font-medium">{item.name}</h2>
+                    <h2 className="text-lg font-semibold">{item.name}</h2>
                     <p className="text-gray-500">Rs. {item.price}</p>
                   </div>
                 </div>
@@ -122,14 +123,14 @@ export default function CartPage() {
             </div>
             <div className="flex justify-between mb-2">
               <span>Shipping</span>
-              <span>Free</span>
+              <span>250</span>
             </div>
             <hr className="my-3" />
             <div className="flex justify-between font-bold text-lg mb-4">
               <span>Total</span>
-              <span>Rs. {total}</span>
+              <span>Rs. {total + 250}</span>
             </div>
-            <button className="w-full bg-green-600 hover:bg-green-700 text-white">
+            <button className="w-full py-3 bg-green-600 hover:bg-green-700 text-white">
               Proceed to Checkout
             </button>
           </div>
