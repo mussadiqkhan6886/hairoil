@@ -3,7 +3,7 @@
 import { instrumental, styleScript } from '@/fonts/font';
 import Link from 'next/link';
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, easeOut } from 'framer-motion'; // ✅ import easing preset
 import Image from 'next/image';
 
 const Product = () => {
@@ -12,7 +12,7 @@ const Product = () => {
     visible: {
       opacity: 1,
       x: 0,
-      transition: { duration: 0.8, ease: 'easeOut' },
+      transition: { duration: 0.8, ease: easeOut }, // ✅ fixed here
     },
   };
 
@@ -21,7 +21,7 @@ const Product = () => {
     visible: {
       opacity: 1,
       x: 0,
-      transition: { duration: 0.8, ease: 'easeOut' },
+      transition: { duration: 0.8, ease: easeOut }, // ✅ fixed here
     },
   };
 
