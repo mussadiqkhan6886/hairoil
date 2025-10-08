@@ -50,7 +50,7 @@ const page = async ({ params }: ProductPageProps) => {
         {/* Right - Product Details */}
         <div className="flex-1 space-y-6">
          <h2
-            className={`${styleScript.className} text-5xl md:text-6xl text-main mb-5`}
+            className={`${instrumental.className} text-5xl  text-main mb-5`}
           >
             {product.name}
           </h2>

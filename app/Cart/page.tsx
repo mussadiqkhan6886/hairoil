@@ -56,7 +56,7 @@ export default function CartPage() {
 
   return (
     <main className="max-w-6xl mx-auto px-4 py-10 md:py-20">
-      <h1 className={`${instrumental.className} text-4xl mb-6`}>Your Cart</h1>
+      <h1 className={`${instrumental.className} text-main text-4xl mb-6`}>Your Cart</h1>
 
       {cart.length === 0 ? (
         <p className="text-gray-500">Your cart is empty.</p>
@@ -130,7 +130,7 @@ export default function CartPage() {
               <span>Total</span>
               <span>Rs. {total + 250}</span>
             </div>
-            <button className="w-full py-3 bg-green-600 hover:bg-green-700 text-white">
+            <button className="w-full py-3 bg-main text-white">
               Proceed to Checkout
             </button>
           </div>

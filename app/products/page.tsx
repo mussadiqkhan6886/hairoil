@@ -1,6 +1,6 @@
 'use client';
 
-import { styleScript } from '@/fonts/font';
+import { instrumental, styleScript } from '@/fonts/font';
 import Image from 'next/image';
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -13,13 +13,13 @@ const page = () => {
   return (
     <main className="px-10 md:px-28 pb-10">
       <h2
-        className={`${styleScript.className} text-5xl md:text-6xl text-center py-10 text-[#1B4D3E]`}
+        className={`${instrumental.className} text-5xl text-center py-10 text-main`}
       >
         Products
       </h2>
 
       <div className="flex">
-        <Link href="/products/herbal-oil" className="bg-[#C1DACC] rounded-lg shadow-md overflow-hidden">
+        <Link href="/products/herbal-oil" className=" rounded-lg shadow-md overflow-hidden">
           {/* Swiper Image Slider */}
           <Swiper
             modules={[Navigation, Autoplay]}
@@ -68,10 +68,10 @@ const page = () => {
 
           {/* Product Info */}
           <div className="p-5 text-center">
-            <h3 className={`${styleScript.className} text-[26px] text-[#1B4D3E]`}>
+            <h3 className={`${instrumental.className} text-[26px] text-main`}>
               Herbal Oil
             </h3>
-            <h4 className="text-gray-800 font-semibold">PKR 2200</h4>
+            <h4 className="text-main/90 font-semibold">PKR 2200</h4>
           </div>
         </Link>
       </div>
