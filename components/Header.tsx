@@ -18,7 +18,7 @@ const Header = () => {
       </div>
       <div className='px-3 sm:px-6 md:px-16 lg:px-28 flex justify-between items-center py-4'>
         <div className='flex gap-10 items-center'>
-          <h1 className={`${styleScript.className} capitalize text-4xl md:text-5xl`}> Iqzaibessence</h1>
+          <h1 className={`${styleScript.className} text-main text-4xl md:text-5xl`}> Iqzaibessence</h1>
           <div className='hidden md:flex gap-7 text-sm '>
             <Link href={"/"}>HOME</Link>
             <Link href={`/products`}>CATALOG</Link>
