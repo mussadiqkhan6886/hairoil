@@ -37,7 +37,7 @@ const page = () => {
                 alt="Herbal Oil"
                 width={300}
                 height={300}
-                className="rounded object-cover"
+                className="rounded object-cover object-bottom"
               />
             </SwiperSlide>
 

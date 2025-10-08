@@ -19,7 +19,7 @@ const Collection = () => {
         <Image
           width={400}
           height={400}
-          src="/oil (1).jpg"
+          src="/oil (10).jpg"
           alt="Coconut Hair Oil"
           className="w-full h-[65%] object-cover object-bottom hover:scale-105 transition-all duration-200"
         />

@@ -45,7 +45,7 @@ const Product = () => {
           <Image
             width={150}
             height={150}
-            src="/oil (10).jpg"
+            src="/oil (3).jpg"
             alt="Herbal Hair Oil Bottle"
             className="w-full md:w-[80%] rounded-3xl shadow-lg"
           />
