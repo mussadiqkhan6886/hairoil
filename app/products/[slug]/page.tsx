@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import { instrumental, styleScript } from "@/fonts/font";
+import { instrumental } from "@/fonts/font";
 
 interface ProductPageProps {
   params: Promise<{ slug: string }>;
@@ -8,7 +8,6 @@ interface ProductPageProps {
 
 const page = async ({ params }: ProductPageProps) => {
   const { slug } = await params;
-  console.log(slug)
   // Example product data (you can later fetch from API or JSON)
   const products = [
     {
@@ -23,7 +22,6 @@ const page = async ({ params }: ProductPageProps) => {
   ];
   
   const product = products.find((p) => p.slug === slug);
-  console.log(product)
 
   if (!product) {
     return (
