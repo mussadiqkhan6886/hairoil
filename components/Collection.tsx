@@ -8,14 +8,14 @@ const Collection = () => {
   return (
     <section className="py-16 min-h-screen bg-main">
     <div className="container mx-auto text-center">
-    <h2 className={`${styleScript.className} text-6xl  text-primary mb-12`}>
+    <h2 className={`${instrumental.className} text-5xl  text-white mb-12`}>
       Our Collections
     </h2>
 
     <div className="flex px-5 justify-center">
 
       {/* Card 3 */}
-      <div className="bg-primary h-full max-w-[400px] overflow-hidden">
+      <div className="bg-white h-full max-w-[400px] overflow-hidden">
         <Image
           width={400}
           height={400}
@@ -24,7 +24,7 @@ const Collection = () => {
           className="w-full h-[65%] object-cover object-bottom hover:scale-105 transition-all duration-200"
         />
         <div className="p-6 text-left h-full">
-          <h3 className={`${instrumental.className} text-4xl  text-main mb-3`}>Herbal Oil</h3>
+          <h3 className={`${instrumental.className} text-3xl  text-main mb-3`}>Herbal Oil</h3>
           <p className="text-font text-sm">
             Purely crafted from nature’s finest herbs, our oil deeply nourishes your scalp and strengthens each strand.
             Experience softer, shinier hair with every use.

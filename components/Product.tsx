@@ -28,7 +28,7 @@ const Product = () => {
   return (
     <section className="py-10 lg:py-20 bg-green-50 overflow-hidden">
       <h2
-        className={`${styleScript.className} text-6xl text-center mb-10 font-main text-main`}
+        className={`${instrumental.className} text-5xl text-center mb-10 font-main text-main`}
       >
         Our Product
       </h2>
@@ -60,7 +60,7 @@ const Product = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           <h2
-            className={`${instrumental.className} text-4xl sm:text-5xl text-main mb-6 leading-snug`}
+            className={`${instrumental.className} text-4xl text-main mb-6 leading-snug`}
           >
             Pure Herbal Hair Oil
           </h2>
