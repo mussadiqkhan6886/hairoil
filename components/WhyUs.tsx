@@ -36,7 +36,7 @@ const WhyUs = () => {
 
   return (
     <section className="py-24 px-5 md:px-16 lg:px-28 text-center overflow-hidden">
-      <h2 className={`${styleScript.className} text-5xl mb-10 text-main`}>
+      <h2 className={`${instrumental.className} text-5xl mb-10 text-main`}>
         Why Choose Us
       </h2>
 
@@ -44,7 +44,7 @@ const WhyUs = () => {
         {cards.map((card, i) => (
           <motion.div
             key={i}
-            className="p-6 shadow-lg rounded-2xl bg-green-50 hover:scale-105 transition-transform"
+            className="p-6 shadow-lg rounded-2xl bg-main text-white"
             variants={cardVariants}
             initial="hidden"
             whileInView="visible"
@@ -52,16 +52,16 @@ const WhyUs = () => {
             custom={i}
           >
             <h3
-              className={`${instrumental.className} text-4xl text-green-700 mb-3`}
+              className={`${instrumental.className} text-2xl mb-3`}
             >
               {card.title}
             </h3>
-            <p className="text-gray-700">{card.text}</p>
+            <p>{card.text}</p>
           </motion.div>
         ))}
       </div>
 
-      <motion.video
+      {/* <motion.video
         src="/anim.mp4"
         playsInline
         muted
@@ -72,7 +72,7 @@ const WhyUs = () => {
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, ease: easeOut }} // ✅ fixed here too
         viewport={{ once: true }}
-      />
+      /> */}
     </section>
   );
 };

@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <header>
-      <div className='bg-main py-2 font-bold text-primary'>
+      <div className='bg-main py-2 font-bold text-white'>
         <h2 className='text-center text-sm sm:text-base'>DELIVERY ALL OVER PAKISTAN IN 3-4 DAYS !</h2>
       </div>
       <div className='px-3 sm:px-6 md:px-16 lg:px-28 flex justify-between items-center py-4'>
