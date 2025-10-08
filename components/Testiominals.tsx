@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import { instrumental, styleScript } from "@/fonts/font";
+import { instrumental } from "@/fonts/font";
 
 const reviews = [
   {
@@ -63,7 +63,7 @@ const Reviews = () => {
   return (
     <section className="py-25 px-6 md:px-16 lg:px-28 bg-primary/10">
       <div className="text-center mb-10">
-        <h2 className={`${instrumental.className} text-5xl md:text-6xl text-main`}>What Our Customers Say</h2>
+        <h2 className={`${instrumental.className} text-3xl md:text-6xl text-main`}>What Our Customers Say</h2>
         <p className="text-font text-sm md:text-base mt-3">
           Real experiences from people who’ve fallen in love with Iqzaib Essence.
         </p>
@@ -86,7 +86,7 @@ const Reviews = () => {
             <SwiperSlide key={index}>
               <div className="bg-white shadow-lg rounded-2xl p-6 text-left h-full flex flex-col justify-between hover:shadow-xl transition-all duration-300">
                 <p className="text-gray-700 italic mb-4">“{review.message}”</p>
-                <h3 className={`${instrumental.className} text-main text-2xl`}>– {review.name}</h3>
+                <h3 className={`${instrumental.className} text-main text-xl sm:text-2xl`}>– {review.name}</h3>
               </div>
             </SwiperSlide>
           ))}

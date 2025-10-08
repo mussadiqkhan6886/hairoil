@@ -60,13 +60,13 @@ const Product = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           <h2
-            className={`${instrumental.className} text-4xl text-main mb-6 leading-snug`}
+            className={`${instrumental.className} text-[35px] sm:text-4xl text-main mb-6 leading-snug`}
           >
             Pure Herbal Hair Oil
           </h2>
-          <p className="text-gray-700 text-lg mb-10 leading-relaxed">
+          <p className="text-main text-lg mb-10 leading-relaxed">
             Discover the secret to naturally radiant, healthy, and strong hair with our
-            <span className="text-green-700 font-semibold">
+            <span className="text-main font-semibold">
               {' '}
               Pure Herbal Hair Oil
             </span>

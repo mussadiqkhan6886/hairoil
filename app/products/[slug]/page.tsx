@@ -50,11 +50,11 @@ const page = async ({ params }: ProductPageProps) => {
         {/* Right - Product Details */}
         <div className="flex-1 space-y-6">
          <h2
-            className={`${instrumental.className} text-5xl  text-main mb-5`}
+            className={`${instrumental.className} text-3xl sm:text-5xl  text-main mb-5`}
           >
             {product.name}
           </h2>
-          <h2 className="text-2xl text-[#1B4D3E] font-semibold">
+          <h2 className="text-xl sm:text-2xl text-main font-semibold">
             {product.price}
           </h2>
           <div className="rounded-lg text-lg font-bold p-3 border w-[160px] flex justify-between">

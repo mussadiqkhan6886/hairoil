@@ -8,7 +8,7 @@ const Collection = () => {
   return (
     <section className="py-16 min-h-screen bg-main">
     <div className="container mx-auto text-center">
-    <h2 className={`${instrumental.className} text-5xl  text-white mb-12`}>
+    <h2 className={`${instrumental.className} text-[40px] sm:text-5xl  text-white mb-12`}>
       Our Collections
     </h2>
 

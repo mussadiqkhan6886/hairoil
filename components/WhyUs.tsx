@@ -36,7 +36,7 @@ const WhyUs = () => {
 
   return (
     <section className="py-24 px-5 md:px-16 lg:px-28 text-center overflow-hidden">
-      <h2 className={`${instrumental.className} text-5xl mb-10 text-main`}>
+      <h2 className={`${instrumental.className} text-[40px] sm:text-5xl mb-10 text-main`}>
         Why Choose Us
       </h2>
 
