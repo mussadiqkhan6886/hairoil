@@ -1,3 +1,4 @@
+import { instrumental } from '@/fonts/font'
 import Link from 'next/link'
 import { FiHome, FiMessageSquare, FiPackage, FiPlusCircle, FiShoppingBag } from 'react-icons/fi'
 
@@ -13,10 +14,10 @@ const Header = () => {
   return (
     <>
         <header className="flex items-center justify-between bg-white px-6 py-4 shadow-sm border-b">
-        <h1 className="text-2xl font-semibold text-gray-800">Admin Panel</h1>
+        <h1 className={`${instrumental.className} text-3xl font-semibold text-main`}>Admin Panel</h1>
         <Link
           href="/"
-          className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition"
+          className="flex items-center gap-2 bg-main text-white px-4 py-2 rounded-lg "
         >
           <FiHome className="w-4 h-4" />
           Go Home
@@ -24,8 +25,8 @@ const Header = () => {
       </header>
 
       {/* Navigation Menu */}
-      <nav className="bg-white border-b shadow-sm">
-        <ul className="flex flex-wrap items-center gap-6 px-6 py-3 text-gray-600">
+      <nav className="border-b shadow-sm">
+        <ul className="flex flex-wrap items-center justify-center gap-6 px-6 py-3 text-gray-600">
           {menuItems.map((item) => (
             <li key={item.name}>
               <Link
