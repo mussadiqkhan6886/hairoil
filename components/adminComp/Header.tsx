@@ -5,10 +5,10 @@ import { FiHome, FiMessageSquare, FiPackage, FiPlusCircle, FiShoppingBag } from 
 const Header = () => {
 
      const menuItems = [
-    { name: 'Testimonials', href: '/admin/testimonials', icon: <FiMessageSquare className="w-4 h-4" /> },
-    { name: 'Products', href: '/admin/products-list', icon: <FiPackage className="w-4 h-4" /> },
-    { name: 'Add Product', href: '/admin/add-product', icon: <FiPlusCircle className="w-4 h-4" /> },
-    { name: 'Orders', href: '/admin/orders-list', icon: <FiShoppingBag className="w-4 h-4" /> },
+    { name: 'Testimonials', href: '/admin-dashboard/testimonials', icon: <FiMessageSquare className="w-4 h-4" /> },
+    { name: 'Products', href: '/admin-dashboard/products-list', icon: <FiPackage className="w-4 h-4" /> },
+    { name: 'Add Product', href: '/admin-dashboard/add-product', icon: <FiPlusCircle className="w-4 h-4" /> },
+    { name: 'Orders', href: '/admin-dashboard/orders-list', icon: <FiShoppingBag className="w-4 h-4" /> },
   ]
 
   return (
@@ -18,7 +18,7 @@ const Header = () => {
         <Link
           href="/"
           className="flex items-center gap-2 bg-main text-white px-4 py-2 rounded-lg "
-        >
+        >\
           <FiHome className="w-4 h-4" />
           Go Home
         </Link>
