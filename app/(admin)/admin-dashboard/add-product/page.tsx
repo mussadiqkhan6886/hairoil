@@ -9,14 +9,14 @@ export default function AddProductPage() {
     slug: '',
     description: '',
     price: '',
-    discountPrice: '',
+    discountPrice: '0',
     category: '',
     size: '',
     mainImage: '',
     isSale: false,
     inStock: true,
     isNewArrival: true,
-    images: [''],
+    images: [] as string[],
     ingredients: [''],
     benefits: [''],
   })
@@ -25,17 +25,14 @@ export default function AddProductPage() {
   const [message, setMessage] = useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, type, value } = e.target;
-
-    // Safely get checked value only for checkboxes
-    const checked = type === 'checkbox' && 'checked' in e.target ? e.target.checked : undefined;
-
-    setProduct((prev) => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value,
-    }));
-  };
-
+    const { name, type, value, checked } = e.target as HTMLInputElement
+    setProduct((prev) => {
+      const updated = { ...prev, [name]: type === 'checkbox' ? checked : value }
+      // if discount unchecked → reset discountPrice to 0
+      if (name === 'isSale' && !checked) updated.discountPrice = '0'
+      return updated
+    })
+  }
 
   const handleArrayChange = (e: React.ChangeEvent<HTMLInputElement>, index: number, key: string) => {
     const { value } = e.target
@@ -58,6 +55,15 @@ export default function AddProductPage() {
     })
   }
 
+  const handleFakeUpload = (key: 'mainImage' | 'images') => {
+    // Simulate fake upload UI (placeholder for Cloudinary)
+    const fakeUrl = 'https://placehold.co/200x200?text=Uploaded+Image'
+    setProduct(prev => {
+      if (key === 'mainImage') return { ...prev, mainImage: fakeUrl }
+      return { ...prev, images: [...prev.images, fakeUrl] }
+    })
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
@@ -72,14 +78,14 @@ export default function AddProductPage() {
           slug: '',
           description: '',
           price: '',
-          discountPrice: '',
+          discountPrice: '0',
           category: '',
           size: '',
           mainImage: '',
           isSale: false,
           inStock: true,
           isNewArrival: true,
-          images: [''],
+          images: [],
           ingredients: [''],
           benefits: [''],
         })
@@ -119,10 +125,19 @@ export default function AddProductPage() {
             <label className="block mb-1 font-medium">Price</label>
             <input type="number" name="price" value={product.price} onChange={handleChange} required className="w-full border p-2 rounded" />
           </div>
-          <div>
-            <label className="block mb-1 font-medium">Discount Price</label>
-            <input type="number" name="discountPrice" value={product.discountPrice} onChange={handleChange} className="w-full border p-2 rounded" />
-          </div>
+
+          {product.isSale && (
+            <div>
+              <label className="block mb-1 font-medium">Discount Price</label>
+              <input
+                type="number"
+                name="discountPrice"
+                value={product.discountPrice}
+                onChange={handleChange}
+                className="w-full border p-2 rounded"
+              />
+            </div>
+          )}
         </div>
 
         {/* Category + Size */}
@@ -137,13 +152,42 @@ export default function AddProductPage() {
           </div>
         </div>
 
+        {/* Upload UI - Main Image */}
         <div>
-          <label className="block mb-1 font-medium">Main Image URL</label>
-          <input name="mainImage" value={product.mainImage} onChange={handleChange} required className="w-full border p-2 rounded" />
+          <label className="block mb-1 font-medium">Main Image</label>
+          <button
+            type="button"
+            onClick={() => handleFakeUpload('mainImage')}
+            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+          >
+            Upload Main Image
+          </button>
+          {product.mainImage && (
+            <img src={product.mainImage} alt="Main" className="mt-3 w-32 h-32 object-cover rounded" />
+          )}
+        </div>
+
+        {/* Upload UI - Gallery Images */}
+        <div>
+          <label className="block mb-1 font-medium">Gallery Images</label>
+          <button
+            type="button"
+            onClick={() => handleFakeUpload('images')}
+            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+          >
+            Upload Gallery Images
+          </button>
+          <div className="flex flex-wrap gap-3 mt-3">
+            {product.images.map((img, i) => (
+              <div key={i} className="relative">
+                <img src={img} alt={`img-${i}`} className="w-24 h-24 object-cover rounded" />
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Dynamic Arrays */}
-        {['images', 'ingredients', 'benefits'].map((key) => (
+        {['ingredients', 'benefits'].map((key) => (
           <div key={key}>
             <label className="block mb-2 font-medium capitalize">{key}</label>
             {(product as any)[key].map((item: string, index: number) => (
