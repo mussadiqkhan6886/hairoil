@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-10">
         {/* Brand Section */}
         <div>
-          <h2 className="text-3xl font-bold tracking-wide">Iqzaib Essence</h2>
+          <h2 className="text-3xl font-bold tracking-wide">IqzaibEssence</h2>
           <p className="text-sm mt-3 text-primary/80 leading-6">
             Experience nature’s secret to healthy, shiny, and strong hair.
             Our herbal oils are crafted with care and love to rejuvenate your hair naturally.

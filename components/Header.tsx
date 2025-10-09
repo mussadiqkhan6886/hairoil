@@ -5,11 +5,17 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 import { FiUser, FiSearch, FiShoppingCart, FiMenu } from "react-icons/fi";
 import Menu from './Menu';
+import { usePathname } from 'next/navigation';
 
 
 const Header = () => {
 
   const [showMenu, setShowMenu] = useState(false)
+  const pathname = usePathname()
+
+  if(pathname === "/admin" || pathname === "/admin/"){
+    return null
+  }
 
   return (
     <header>
