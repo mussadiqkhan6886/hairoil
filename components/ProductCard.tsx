@@ -17,7 +17,7 @@ const ProductCard = ({ data }: { data: Product[] }) => {
           key={item._id}
           className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden"
         >
-          <Link href={`/products/${item.slug}`}>
+          <Link href={`/products/${item._id}`}>
             {/* Image Slider */}
             <Swiper
               modules={[Navigation, Autoplay]}
