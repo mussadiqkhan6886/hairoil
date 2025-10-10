@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { FaEdit, FaTrash } from "react-icons/fa";
 import IconButton from '@mui/material/IconButton';
+import axios from 'axios';
 
 interface Product {
   _id: string;
@@ -34,9 +35,21 @@ export default function ProductTable({ products }: ProductTableProps) {
     console.log("Edit product:", id);
   };
 
-  const handleDelete = (id: string) => {
-    console.log("Delete product:", id);
+  const handleDelete = async (id: string) => {
+    console.log(id)
+    if (!confirm("Are you sure you want to delete this product?")) return;
+    try {
+      const res = await axios.delete(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products/${id}`);
+      if (res.status === 200) {
+        alert("Product deleted successfully!");
+        window.location.reload();
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Failed to delete product.");
+    }
   };
+
 
   const columns: GridColDef<Product>[] = [
     { field: 'name', headerName: 'Name', flex: 1, minWidth: 150 },
