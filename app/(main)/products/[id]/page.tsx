@@ -3,6 +3,8 @@ import React from "react";
 import { instrumental } from "@/fonts/font";
 import Product from "@/lib/model/ProductSchema";
 import { connectDB } from "@/lib/config/database";
+import Quantity from "@/components/Quantity";
+import ProductQunantity from "@/components/ProductQunantity";
 
 interface ProductPageProps {
   params: Promise<{ id: string }>;
@@ -14,6 +16,8 @@ const page = async ({ params }: ProductPageProps) => {
 
   const { id } = await params;
   
+ 
+
   const product = await Product.findById(id)
   
 
@@ -52,13 +56,8 @@ const page = async ({ params }: ProductPageProps) => {
           </h3>
 
           <div><span>Size:</span><span>{product.size}</span></div>
-          {/* Quantity Selector */}
-          <div className="rounded-lg text-lg font-bold p-3 border border-gray-300 w-[160px] flex justify-between items-center select-none">
-            <span className="cursor-pointer text-main">−</span>
-            <span>1</span>
-            <span className="cursor-pointer text-main">+</span>
-          </div>
 
+          <ProductQunantity />
           {/* Description */}
           <p className="text-gray-700 leading-relaxed text-lg">
             {product.description}
