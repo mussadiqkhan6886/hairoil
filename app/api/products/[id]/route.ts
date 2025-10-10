@@ -6,7 +6,7 @@ export const GET = async (_req: NextRequest, {params}: {params: Promise<{id: str
     await connectDB()
     const {id} = await params
 
-    const data = Product.findById(id)
+    const data = await Product.findById(id)
 
     if(!data){
         return NextResponse.json({message: "Product not found"}, {status: 400})
