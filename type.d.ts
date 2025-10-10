@@ -17,3 +17,12 @@ interface Product {
   updatedAt: string;
   __v: number;
 }
+
+interface reviewType {
+  _id: string,
+  name: string
+  designation: string
+  message: string
+  createdAt: string
+  updatedAt: string
+}
