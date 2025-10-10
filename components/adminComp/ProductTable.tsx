@@ -54,13 +54,13 @@ export default function ProductTable({ products }: ProductTableProps) {
       field: 'isSale',
       headerName: 'Sale',
       width: 80,
-      renderCell: (params) => (params.row.isSale ? 'Yes' : 'No'),
+      type: 'boolean',
     },
     {
       field: 'inStock',
       headerName: 'Stock',
       width: 100,
-      renderCell: (params) => (params.row.inStock ? 'Available' : 'Out'),
+      type: 'boolean'
     },
     {
       field: 'size',
