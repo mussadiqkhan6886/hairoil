@@ -19,8 +19,10 @@ export default function TestimonialsList({
 }) {
   return (
     <div className="p-6">
-      <h1 className="text-3xl font-bold mb-6">Testimonials</h1>
-
+      <div className="flex justify-between px-10 mb-4">
+        <h1 className="text-2xl font-bold mb-6">Testimonials</h1>
+        <button className="bg-black text-white px-3.5 cursor-pointer rounded-lg">Add Testimonial</button>
+      </div>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {testimonials.map((t) => (
           <div
