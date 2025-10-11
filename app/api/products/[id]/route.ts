@@ -74,36 +74,40 @@ export const PATCH = async (
       uploadedImages.push((uploadRes as any).secure_url);
     }
 
-   
+    // 🔹 Fetch existing product to merge images
+    const existingProduct = await Product.findById(id);
+    if (!existingProduct) {
+      return NextResponse.json({ success: false, message: "Product not found" }, { status: 404 });
+    }
+
     // Merge existing images with newly uploaded images
     const updatedImages = [...existingProduct.images, ...uploadedImages];
 
     // Build update object
     const updateQuery = {
-    name,
-    slug,
-    description,
-    price,
-    discountPrice,
-    category,
-    size,
-    ingredients,
-    benefits,
-    isSale,
-    inStock,
-    isNewArrival,
-    images: updatedImages, // just overwrite with merged array
+      name,
+      slug,
+      description,
+      price,
+      discountPrice,
+      category,
+      size,
+      ingredients,
+      benefits,
+      isSale,
+      inStock,
+      isNewArrival,
+      images: updatedImages, // just overwrite with merged array
     };
 
     // Update in DB
     const updatedProduct = await Product.findByIdAndUpdate(id, updateQuery, { new: true });
 
     return NextResponse.json({
-    success: true,
-    message: "Product updated successfully",
-    product: updatedProduct,
+      success: true,
+      message: "Product updated successfully",
+      product: updatedProduct,
     });
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
     console.error("PATCH error:", err);
     return NextResponse.json(
@@ -112,6 +116,7 @@ export const PATCH = async (
     );
   }
 };
+
 
 
 
