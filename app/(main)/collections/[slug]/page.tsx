@@ -1,5 +1,3 @@
-export const revalidate = 60; // regenerate page every 60 seconds
-
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";

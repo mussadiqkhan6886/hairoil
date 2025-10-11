@@ -1,5 +1,3 @@
-export const revalidate = 60; // regenerate page every 60 seconds
-
 import OrderTable from "@/components/adminComp/OrderTable";
 
 export default async function OrdersPage() {
@@ -14,6 +12,7 @@ export default async function OrdersPage() {
     }
 
     const data = await res.json();
+    console.log(data)
     const orders = data.orders;
 
     return <OrderTable orders={orders} />;

@@ -1,16 +1,26 @@
-export const revalidate = 60; // regenerate page every 60 seconds
-
 import TestimonialsList from "@/components/adminComp/Testimonials";
-import { connectDB } from "@/lib/config/database";
-import Testimonial from "@/lib/model/Testimonials";
-
+import React from "react";
 
 export default async function TestimonialsPage() {
+  try {
+    // Fetch testimonials from API
+    const res = await fetch(`/api/testimonials`, { cache: "no-store" });
 
-  await connectDB()
+    if (!res.ok) {
+      throw new Error("Failed to fetch testimonials");
+    }
 
-  const res = await Testimonial.find({})
-  const testimonials = JSON.parse(JSON.stringify(res))
+    const data = await res.json();
+    console.log(data)
+    const testimonials = data.testimonials;
 
-  return <TestimonialsList testimonials={testimonials} />;
+    return <TestimonialsList testimonials={testimonials} />;
+  } catch (error) {
+    console.error("Error fetching testimonials:", error);
+    return (
+      <div className="text-center py-20 text-gray-700 text-xl">
+        Failed to load testimonials.
+      </div>
+    );
+  }
 }

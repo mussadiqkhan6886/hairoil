@@ -1,4 +1,3 @@
-export const revalidate = 60; // regenerate page every 60 seconds
 
 import Image from "next/image";
 import React from "react";
@@ -20,6 +19,7 @@ const Page = async ({ params }: ProductPageProps) => {
     }
 
     const data = await res.json();
+    console.log(data)
     const product = data.data;
 
     if (!product) {

@@ -1,5 +1,3 @@
-export const revalidate = 60; // regenerate page every 60 seconds
-
 import ProductTable from "@/components/adminComp/ProductTable";
 
 export default async function AdminProductsPage() {
@@ -14,6 +12,7 @@ export default async function AdminProductsPage() {
     }
 
     const data = await res.json();
+    console.log(data)
     const products = data.data; // your GET route returns { message, data }
 
     return (
