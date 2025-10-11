@@ -24,7 +24,7 @@ const Collection = () => {
           className="w-full h-[65%] object-cover object-bottom hover:scale-105 transition-all duration-200"
         />
         <div className="p-6 text-left h-full">
-          <h3 className={`${instrumental.className} text-3xl  text-main mb-3`}>Herbal Oil</h3>
+          <h3 className={`${instrumental.className} text-3xl  text-main mb-3`}>Hair Oil</h3>
           <p className="text-font text-sm">
             Purely crafted from nature’s finest herbs, our oil deeply nourishes your scalp and strengthens each strand.
             Experience softer, shinier hair with every use.

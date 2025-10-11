@@ -2,9 +2,13 @@ import React from "react";
 import { instrumental } from "@/fonts/font";
 import Review from "./Review";
 import Testimonial from "@/lib/model/Testimonials";
+import { connectDB } from "@/lib/config/database";
 
 
 const Reviews = async () => {
+
+  await connectDB()
+
     const res = await Testimonial.find({})
     const testimonials = JSON.parse(JSON.stringify(res))
 
