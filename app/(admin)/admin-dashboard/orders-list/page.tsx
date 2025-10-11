@@ -1,3 +1,5 @@
+export const revalidate = 60; // regenerate page every 60 seconds
+
 import OrderTable from "@/components/adminComp/OrderTable";
 import { connectDB } from "@/lib/config/database";
 import order from "@/lib/model/OrderSchema";

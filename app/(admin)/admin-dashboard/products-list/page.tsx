@@ -1,3 +1,5 @@
+export const revalidate = 60; // regenerate page every 60 seconds
+
 import ProductTable from "@/components/adminComp/ProductTable";
 import Product from "@/lib/model/ProductSchema";
 import { connectDB } from "@/lib/config/database";

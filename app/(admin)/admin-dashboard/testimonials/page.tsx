@@ -1,3 +1,5 @@
+export const revalidate = 60; // regenerate page every 60 seconds
+
 import TestimonialsList from "@/components/adminComp/Testimonials";
 import { connectDB } from "@/lib/config/database";
 import Testimonial from "@/lib/model/Testimonials";

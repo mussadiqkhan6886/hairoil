@@ -1,9 +1,9 @@
+export const revalidate = 60; // regenerate page every 60 seconds
+
 import ProductCard from '@/components/ProductCard';
-import { instrumental, styleScript } from '@/fonts/font';
+import { instrumental } from '@/fonts/font';
 import { connectDB } from '@/lib/config/database';
 import Product from '@/lib/model/ProductSchema';
-import axios from 'axios';
-import Image from 'next/image';
 import React from 'react';
 
 
