@@ -20,18 +20,8 @@ const Footer = () => {
           <ul className="space-y-2 text-primary/90">
             <li><Link href="/" className="hover:text-white transition">Home</Link></li>
             <li><Link href="/products" className="hover:text-white transition">Products</Link></li>
-            <li><Link href="/about" className="hover:text-white transition">About</Link></li>
+            <li><Link href="/collections" className="hover:text-white transition">Collection</Link></li>
             <li><Link href="/contact" className="hover:text-white transition">Contact</Link></li>
-          </ul>
-        </div>
-
-        {/* Contact Info */}
-        <div>
-          <h3 className="text-xl font-semibold mb-4">Contact</h3>
-          <ul className="space-y-2 text-primary/90">
-            <li>Email: <a href="mailto:info@iqzaibessence.com" className="hover:text-white transition">info@iqzaibessence.com</a></li>
-            <li>Phone: +92 300 1234567</li>
-            <li>Address: Islamabad, Pakistan</li>
           </ul>
         </div>
 
@@ -39,17 +29,14 @@ const Footer = () => {
         <div>
           <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
           <div className="flex gap-5 text-2xl">
-            <a href="#" className="hover:text-white transition"><FiFacebook /></a>
-            <a href="#" className="hover:text-white transition"><FiInstagram /></a>
-            <a href="#" className="hover:text-white transition"><FiTwitter /></a>
-            <a href="mailto:info@iqzaibessence.com" className="hover:text-white transition"><FiMail /></a>
+            <a href="https://www.instagram.com/iqzaibessence/?__pwa=1" className="hover:text-white transition"><FiInstagram /></a>
           </div>
         </div>
       </div>
 
       {/* Copyright */}
       <div className="border-t border-primary/30 mt-10 pt-6 text-center text-primary/80 text-sm">
-        © {new Date().getFullYear()} Iqzaib Essence. All rights reserved.
+        © {new Date().getFullYear()} Iqzaibessence. All rights reserved.
       </div>
     </footer>
   );
