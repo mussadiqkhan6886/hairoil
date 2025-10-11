@@ -74,34 +74,34 @@ export const PATCH = async (
       uploadedImages.push((uploadRes as any).secure_url);
     }
 
-   const updateQuery = {
-    $set: {
-      name,
-      slug,
-      description,
-      price,
-      discountPrice,
-      category,
-      size,
-      ingredients,
-      benefits,
-      isSale,
-      inStock,
-      isNewArrival,
-    },
-  };
+   
+    // Merge existing images with newly uploaded images
+    const updatedImages = [...existingProduct.images, ...uploadedImages];
 
-  if (uploadedImages.length > 0) {
-    updateQuery.$push = { images: { $each: uploadedImages } };
-  }
+    // Build update object
+    const updateQuery = {
+    name,
+    slug,
+    description,
+    price,
+    discountPrice,
+    category,
+    size,
+    ingredients,
+    benefits,
+    isSale,
+    inStock,
+    isNewArrival,
+    images: updatedImages, // just overwrite with merged array
+    };
 
-  const updatedProduct = await Product.findByIdAndUpdate(id, updateQuery, { new: true });
-
+    // Update in DB
+    const updatedProduct = await Product.findByIdAndUpdate(id, updateQuery, { new: true });
 
     return NextResponse.json({
-      success: true,
-      message: "Product updated successfully",
-      product: updatedProduct,
+    success: true,
+    message: "Product updated successfully",
+    product: updatedProduct,
     });
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
