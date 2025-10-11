@@ -41,6 +41,7 @@ export async function POST(req: NextRequest) {
       const arrayBuffer = await file.arrayBuffer();
       const buffer = Buffer.from(arrayBuffer);
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const uploadResult = await new Promise<any>((resolve, reject) => {
         cloudinary.uploader
           .upload_stream(
@@ -76,6 +77,7 @@ export async function POST(req: NextRequest) {
       { success: true, message: "Product uploaded successfully!", data: newProduct },
       { status: 201 }
     );
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     console.error("Cloudinary upload error:", error);
     return NextResponse.json(

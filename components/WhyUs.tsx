@@ -1,6 +1,6 @@
 'use client';
 
-import { instrumental, styleScript } from '@/fonts/font';
+import { instrumental } from '@/fonts/font';
 import React from 'react';
 import { motion, easeOut } from 'framer-motion'; // ✅ import easing preset
 

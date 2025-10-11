@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import ProductQuantity from "@/components/ProductQunantity";
 import AddToCartButton from "@/components/AddToCartButton";
 
-const ProductQuantityWrapper = ({ product }: { product: any }) => {
+const ProductQuantityWrapper = ({ product }: { product: Product }) => {
   const [quantity, setQuantity] = useState(1);
   return (
     <div className="flex flex-col gap-4">

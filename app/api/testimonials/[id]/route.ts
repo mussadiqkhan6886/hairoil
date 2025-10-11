@@ -18,6 +18,7 @@ export const DELETE = async (_req: NextRequest, { params }: { params: Promise<{ 
     }
 
     return NextResponse.json({ success: true, message: "Testimonial deleted successfully" });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     console.error("Delete error:", error);
     return NextResponse.json(

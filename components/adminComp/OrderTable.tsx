@@ -2,10 +2,9 @@
 
 import * as React from "react";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
-import { FaEdit, FaTrash } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 import IconButton from "@mui/material/IconButton";
 import Box from "@mui/material/Box";
-import { useRouter } from "next/navigation";
 import axios from "axios";
 
 interface Order {
@@ -28,7 +27,6 @@ interface Order {
 }
 
 export default function OrderTable({ orders }: { orders: Order[] }) {
-  const router = useRouter();
   const [rows, setRows] = React.useState(() =>
     orders.map((order) => ({
       id: order._id,
@@ -42,6 +40,7 @@ export default function OrderTable({ orders }: { orders: Order[] }) {
       address: order.shippingAddress.address,
     }))
   );
+      const [updating, setUpdating] = React.useState(false);
 
   const deleteOrder = async (id: string) => {
     const confirmDelete = confirm("Are you sure you want to delete this order?");
@@ -70,7 +69,6 @@ export default function OrderTable({ orders }: { orders: Order[] }) {
   headerName: "Status",
   width: 170,
   renderCell: (params) => {
-    const [updating, setUpdating] = React.useState(false);
 
     const getColor = (status: string) => {
       switch (status) {

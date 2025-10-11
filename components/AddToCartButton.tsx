@@ -9,7 +9,7 @@ interface Props {
 }
 
 const AddToCartButton = ({ data, quantity }: Props) => {
-  const { addToCart, cart } = useCart();
+  const { addToCart } = useCart();
 
   return (
     <button

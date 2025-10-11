@@ -3,9 +3,8 @@
 import { styleScript } from '@/fonts/font';
 import Link from 'next/link'
 import React, { useState } from 'react'
-import { FiUser, FiSearch, FiShoppingCart, FiMenu } from "react-icons/fi";
+import { FiSearch, FiShoppingCart, FiMenu } from "react-icons/fi";
 import Menu from './Menu';
-import { usePathname } from 'next/navigation';
 import { useCart } from '@/hooks/useCart';
 
 
