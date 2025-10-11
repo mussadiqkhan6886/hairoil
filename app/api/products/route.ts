@@ -7,7 +7,7 @@ import cloudinary from "@/lib/config/cloudinary"
 export const runtime = "nodejs"; // Required for Cloudinary uploads
 
 
-export const GET = async (_req: NextResponse) => {
+export const GET = async () => {
   await connectDB();
   try {
     const res = await Product.find({});
