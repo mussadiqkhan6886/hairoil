@@ -8,7 +8,7 @@ import { instrumental } from "@/fonts/font";
 const CollectionPage = async () => {
   await connectDB();
 
-  const products : Product = await Product.find({ category: "hair oil" }).lean();
+  const products : Product[] = await Product.find({ category: "hair oil" }).lean();
 
   if (!products || products.length === 0) {
     return (
