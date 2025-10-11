@@ -30,7 +30,6 @@ const Header = () => {
         </div>
         <div className='flex gap-7'>          
           <FiSearch />
-          <FiUser className='hidden md:inline-block' />
           <Link href={"/Cart"} className='relative'>
             <p className='bg-red-600 text-white w-[17px] text-[12px] text-center -top-2 -right-1.5 h-[17px] rounded-full absolute'>{totalItems}</p>
             <FiShoppingCart />

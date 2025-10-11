@@ -19,9 +19,9 @@ const Contact = () => {
       </section>
 
       {/* Contact Form + Info */}
-      <div className="grid md:grid-cols-2 gap-16 items-start">
+      <div className="flex items-center justify-center">
         {/* Left Side - Contact Form */}
-        <form className="bg-white shadow-lg rounded-2xl p-8 space-y-6">
+        <form className="bg-white shadow-lg rounded-2xl min-w-[310px] w-[450px] p-8 space-y-6">
           <div>
             <label className="block text-sm font-semibold mb-2">Full Name</label>
             <input
@@ -56,33 +56,6 @@ const Contact = () => {
             Send Message
           </button>
         </form>
-
-        {/* Right Side - Contact Info */}
-        <div className="space-y-8 pt-15 px-6">
-          <div className="flex items-start gap-4">
-            <FiMapPin className="text-3xl text-[#1B4D3E]" />
-            <div>
-              <h3 className="font-semibold text-lg">Our Address</h3>
-              <p> Islamabad, Pakistan</p>
-            </div>
-          </div>
-
-          <div className="flex items-start gap-4">
-            <FiPhone className="text-3xl text-[#1B4D3E]" />
-            <div>
-              <h3 className="font-semibold text-lg">Phone Number</h3>
-              <p>+92 318 ********</p>
-            </div>
-          </div>
-
-          <div className="flex items-start gap-4">
-            <FiMail className="text-3xl text-[#1B4D3E]" />
-            <div>
-              <h3 className="font-semibold text-lg">Email Address</h3>
-              <p>mussadiqkhan6886@gmail.com</p>
-            </div>
-          </div>
-        </div>
       </div>
     </main>
   );
