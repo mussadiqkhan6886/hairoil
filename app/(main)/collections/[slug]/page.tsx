@@ -29,7 +29,7 @@ const CollectionPage = async () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
         {products.map((item) => (
           <div
-            key={item._id.toString()}
+            key={item._id}
             className="group bg-white shadow-md rounded-2xl overflow-hidden hover:shadow-lg transition"
           >
             <Link href={`/products/${item._id}`}>
