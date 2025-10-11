@@ -1,25 +1,19 @@
 import Image from "next/image";
 import React from "react";
 import { instrumental } from "@/fonts/font";
-import Product from "@/lib/model/ProductSchema";
+import ProductQuantityWrapper from "@/components/ProductQuntityWrapper";
 import { connectDB } from "@/lib/config/database";
-import Quantity from "@/components/Quantity";
-import ProductQunantity from "@/components/ProductQunantity";
+import Product from "@/lib/model/ProductSchema";
 
 interface ProductPageProps {
   params: Promise<{ id: string }>;
 }
 
-const page = async ({ params }: ProductPageProps) => {
-
-  await connectDB()
-
+const Page = async ({ params }: ProductPageProps) => {
+  await connectDB();
   const { id } = await params;
-  
- 
-
-  const product = await Product.findById(id)
-  
+  const res = await Product.findById(id);
+  const product = JSON.parse(JSON.stringify(res))
 
   if (!product) {
     return (
@@ -45,20 +39,36 @@ const page = async ({ params }: ProductPageProps) => {
 
         {/* Right - Product Details */}
         <div className="flex-1 space-y-6">
-          <h2
-            className={`${instrumental.className} text-3xl sm:text-5xl text-main mb-5`}
-          >
+          <h2 className={`${instrumental.className} text-3xl sm:text-5xl text-main mb-5`}>
             {product.name}
           </h2>
 
-         <h3 className="text-gray-700 font-medium">
-          PKR <span className={`${product.isSale ? "line-through text-gray-800 text-sm" : "text-main text-3xl font-semibold"}`}>{product.price}</span>
-          {product.isSale && (<span className="font-semibold inline-block pl-2 text-3xl">{product.discountPrice}</span>)}
-        </h3>
+          <h3 className="text-gray-700 font-medium">
+            PKR{" "}
+            <span
+              className={`${
+                product.isSale
+                  ? "line-through text-gray-800 text-sm"
+                  : "text-main text-3xl font-semibold"
+              }`}
+            >
+              {product.price}
+            </span>
+            {product.isSale && (
+              <span className="font-semibold inline-block pl-2 text-3xl">
+                {product.discountPrice}
+              </span>
+            )}
+          </h3>
 
-          <div><span>Size:</span><span>{product.size}</span></div>
+          <div>
+            <span className="font-semibold">Size: </span>
+            <span>{product.size}</span>
+          </div>
 
-          <ProductQunantity />
+          {/* Quantity + Add to Cart */}
+          <ProductQuantityWrapper product={product} />
+
           {/* Description */}
           <p className="text-gray-700 leading-relaxed text-lg">
             {product.description}
@@ -78,7 +88,7 @@ const page = async ({ params }: ProductPageProps) => {
             </ul>
           </div>
 
-          {/* Benefits (if available) */}
+          {/* Benefits */}
           {product.benefits && (
             <div>
               <h4 className={`${instrumental.className} text-2xl mb-3`}>
@@ -91,16 +101,12 @@ const page = async ({ params }: ProductPageProps) => {
               </ul>
             </div>
           )}
-
-          {/* Add to Cart */}
-          <button className="bg-main text-white px-6 py-3 rounded-md hover:bg-[#163F33] transition font-semibold w-full">
-            Add to Cart
-          </button>
         </div>
       </div>
     </main>
   );
 };
 
+export default Page;
 
-export default page;
+

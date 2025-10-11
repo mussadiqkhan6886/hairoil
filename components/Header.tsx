@@ -6,16 +6,13 @@ import React, { useState } from 'react'
 import { FiUser, FiSearch, FiShoppingCart, FiMenu } from "react-icons/fi";
 import Menu from './Menu';
 import { usePathname } from 'next/navigation';
+import { useCart } from '@/hooks/useCart';
 
 
 const Header = () => {
 
   const [showMenu, setShowMenu] = useState(false)
-  const pathname = usePathname()
-
-  if(pathname === "/admin" || pathname === "/admin/"){
-    return null
-  }
+  const {totalItems} = useCart()
 
   return (
     <header>
@@ -34,7 +31,8 @@ const Header = () => {
         <div className='flex gap-7'>          
           <FiSearch />
           <FiUser className='hidden md:inline-block' />
-          <Link href={"/Cart"}>
+          <Link href={"/Cart"} className='relative'>
+            <p className='bg-red-600 text-white w-[17px] text-[12px] text-center -top-2 -right-1.5 h-[17px] rounded-full absolute'>{totalItems}</p>
             <FiShoppingCart />
           </Link>
           <FiMenu onClick={() => setShowMenu(true)} className='inline-block md:hidden' />
