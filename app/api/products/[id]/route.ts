@@ -74,7 +74,8 @@ export const PATCH = async (
       uploadedImages.push((uploadRes as any).secure_url);
     }
 
-    const newData = {
+   const updateQuery: any = {
+    $set: {
       name,
       slug,
       description,
@@ -87,13 +88,15 @@ export const PATCH = async (
       isSale,
       inStock,
       isNewArrival,
-    };
+    },
+  };
 
-    if (uploadedImages.length > 0) {
-      newData.$push = { images: { $each: uploadedImages } };
-    }
+  if (uploadedImages.length > 0) {
+    updateQuery.$push = { images: { $each: uploadedImages } };
+  }
 
-    const updatedProduct = await Product.findByIdAndUpdate(id, newData, { new: true });
+  const updatedProduct = await Product.findByIdAndUpdate(id, updateQuery, { new: true });
+
 
     return NextResponse.json({
       success: true,
