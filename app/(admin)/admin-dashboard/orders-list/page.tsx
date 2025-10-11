@@ -1,17 +1,24 @@
 export const revalidate = 60; // regenerate page every 60 seconds
 
 import OrderTable from "@/components/adminComp/OrderTable";
-import { connectDB } from "@/lib/config/database";
-import order from "@/lib/model/OrderSchema";
-
 
 export default async function OrdersPage() {
+  try {
+    // Call your API route
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/order`, {
+      cache: "no-store", // ensure fresh data every time
+    });
 
-  await connectDB()
+    if (!res.ok) {
+      throw new Error("Failed to fetch orders");
+    }
 
-  const res = await order.find({})
+    const data = await res.json();
+    const orders = data.orders;
 
-  const orders = JSON.parse(JSON.stringify(res))
-
-  return <OrderTable orders={orders} />;
+    return <OrderTable orders={orders} />;
+  } catch (error) {
+    console.error("Error fetching orders:", error);
+    return <div className="text-center py-10">Failed to load orders.</div>;
+  }
 }

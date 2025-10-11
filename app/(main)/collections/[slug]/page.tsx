@@ -7,12 +7,6 @@ import { connectDB } from "@/lib/config/database";
 import Product from "@/lib/model/ProductSchema";
 import { instrumental } from "@/fonts/font";
 
-export const generateStaticParams = async () => {
-  return [
-    { slug: "hair-oil" } // match your dynamic route [slug]
-  ];
-};
-
 
 const CollectionPage = async () => {
   await connectDB();
