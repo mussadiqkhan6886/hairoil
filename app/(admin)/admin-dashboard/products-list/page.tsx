@@ -4,7 +4,7 @@ export default async function AdminProductsPage() {
   try {
     // Call your API route
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products`, {
-      cache: "no-store", // ensures fresh data every time
+      next:{revalidate: 10}, // ensures fresh data every time
     });
 
     if (!res.ok) {

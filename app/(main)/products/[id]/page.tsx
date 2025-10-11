@@ -12,7 +12,7 @@ const Page = async ({ params }: ProductPageProps) => {
   try {
     // Fetch product via API route
     const id = (await params).id
-    const res = await fetch(`/api/products/${id}`, { cache: "no-store" });
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products/${id}`, { next: {revalidate: 10} });
 
     if (!res.ok) {
       throw new Error("Failed to fetch product");
