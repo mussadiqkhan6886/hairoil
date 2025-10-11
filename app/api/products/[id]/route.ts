@@ -108,6 +108,7 @@ export const PATCH = async (
       message: "Product updated successfully",
       product: updatedProduct,
     });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
     console.error("PATCH error:", err);
     return NextResponse.json(
