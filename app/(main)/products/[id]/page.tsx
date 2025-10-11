@@ -6,13 +6,14 @@ import { instrumental } from "@/fonts/font";
 import ProductQuantityWrapper from "@/components/ProductQuntityWrapper";
 
 interface ProductPageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 const Page = async ({ params }: ProductPageProps) => {
   try {
     // Fetch product via API route
-    const res = await fetch(`/api/products/${params.id}`, { cache: "no-store" });
+    const id = (await params).id
+    const res = await fetch(`/api/products/${id}`, { cache: "no-store" });
 
     if (!res.ok) {
       throw new Error("Failed to fetch product");
