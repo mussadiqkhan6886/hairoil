@@ -35,7 +35,6 @@ export const PATCH = async (req: NextRequest, {params}: {params: Promise<{id: st
 
 export const DELETE = async (_req: NextRequest, {params}: {params: Promise<{id: string}>}) => {
     await connectDB();
-  console.log(params)
     const  id  = (await params).id;
    try {
     console.log(" Deleting product with ID:", id);

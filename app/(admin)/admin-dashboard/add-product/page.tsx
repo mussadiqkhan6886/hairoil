@@ -3,6 +3,7 @@ import React, { ChangeEvent, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
 import imageCompression from "browser-image-compression";
+import { useRouter } from "next/navigation";
 
 const AddProduct = () => {
   const [files, setFiles] = useState<File[]>([]);
@@ -21,6 +22,8 @@ const AddProduct = () => {
     ingredients: [] as string[],
     benefits: [] as string[],
   });
+
+  const router = useRouter()
 
   // Handle normal text fields
   const handleChange = (
@@ -99,6 +102,9 @@ const AddProduct = () => {
         });
         setFiles([]);
         setPreviews([]);
+        setTimeout(() => {
+          router.push("/admin-dashboard/products-list")
+        }, 1500)
       }
     } catch (err) {
       console.error(" Upload failed:", err);

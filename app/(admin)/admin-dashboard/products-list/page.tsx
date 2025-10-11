@@ -7,7 +7,6 @@ export default async function AdminProductsPage() {
 
   const products = await Product.find({});
 
-  // ✅ Convert Mongoose documents to plain objects
   const plainProducts = JSON.parse(JSON.stringify(products));
 
   return (
