@@ -11,7 +11,7 @@ interface ProductPageProps {
 
 export const generateStaticParams = async () => {
   await connectDB();
-  const products = await Product.find().lean();
+  const products = await Product.find().lean() as Product[];
   return products.map((p) => ({
     id: p._id.toString(),
   }));
