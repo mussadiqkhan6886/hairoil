@@ -24,3 +24,4 @@ export const GET = async () => {
     return NextResponse.json({ success: false, error: "Failed to fetch testimonials" }, { status: 500 });
   }
 };
+

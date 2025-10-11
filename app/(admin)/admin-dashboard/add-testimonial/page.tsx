@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const AddTestimonialPage = () => {
   const [form, setForm] = useState({
@@ -9,6 +10,7 @@ const AddTestimonialPage = () => {
     message: "",
   });
   const [result,setResult] = useState("")
+  const router = useRouter()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -21,6 +23,9 @@ const AddTestimonialPage = () => {
       if (res.data.success) {
         setResult("Testimonial added successfully!")
         setForm({ name: "", designation: "", message: "" });
+        setTimeout(() => {
+          router.push("/admin-dashboard/testimonials")
+        }, 1500)
       } else {
         setResult("Failed to add testimonial.");
       }

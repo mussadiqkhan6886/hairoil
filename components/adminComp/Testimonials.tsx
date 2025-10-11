@@ -1,8 +1,6 @@
-"use client";
-
 import Link from "next/link";
 import React from "react";
-import { FaStar, FaRegStar, FaEdit, FaTrash } from "react-icons/fa";
+import DeleteReview from "./DeleteReview";
 
 
 export default function TestimonialsList({
@@ -16,7 +14,7 @@ export default function TestimonialsList({
         <h1 className="text-2xl font-bold mb-6">Testimonials</h1>
         <button className="bg-black text-white px-3.5 cursor-pointer rounded-lg"><Link href={"/admin-dashboard/add-testimonial"}>Add Testimonial</Link></button>
       </div>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {testimonials.length < 1 ? <div className="text-center text-3xl">No Reviews</div> : <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {testimonials.map((t) => (
           <div
             key={t._id}
@@ -25,7 +23,7 @@ export default function TestimonialsList({
             <div className="flex items-center gap-4 mb-3">
               
               <div>
-                <h2 className="text-lg font-semibold">{t.name}</h2>
+                <h2 className="text-lg font-semibold capitalize">{t.name}</h2>
                 <p className="text-gray-500 text-sm">{t.designation}</p>
               </div>
             </div>
@@ -40,17 +38,12 @@ export default function TestimonialsList({
             <div className="flex justify-between items-center text-sm text-gray-600">
             
               <div className="flex gap-3">
-                <button className="text-blue-600 hover:text-blue-800">
-                  <FaEdit />
-                </button>
-                <button className="text-red-600 hover:text-red-800">
-                  <FaTrash />
-                </button>
+                <DeleteReview id={t._id} />
               </div>
             </div>
           </div>
         ))}
-      </div>
+      </div>}
     </div>
   );
 }
