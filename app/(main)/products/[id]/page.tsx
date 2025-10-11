@@ -29,6 +29,7 @@ const Page = async ({ params }: ProductPageProps) => {
         {/* Left - Product Image */}
         <div className="flex-1 flex justify-center">
           <Image
+            fetchPriority="high"
             src={product.images[0]}
             alt={product.name}
             width={450}

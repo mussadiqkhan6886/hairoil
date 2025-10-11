@@ -13,7 +13,7 @@ const Header = () => {
 
   const [showMenu, setShowMenu] = useState(false)
   const {totalItems} = useCart()
-
+  
   return (
     <header>
       <div className='bg-main py-2 font-bold text-white'>

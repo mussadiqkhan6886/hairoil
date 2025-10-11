@@ -3,6 +3,7 @@
 import { instrumental } from "@/fonts/font";
 import { useCart } from "@/hooks/useCart";
 import Image from "next/image";
+import Link from "next/link";
 
 
 
@@ -73,7 +74,7 @@ export default function CartPage() {
               <span>Rs. {totalAmount + 250}</span>
             </div>
             <button className="w-full py-3 bg-main text-white">
-              Proceed to Checkout
+              <Link href={"/checkout"}>Processed to Checkout</Link>
             </button>
           </div>
         </div>
