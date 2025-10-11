@@ -1,7 +1,6 @@
 // middleware.ts
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
-import { jwtVerify } from "jose" // secure jwt verification
 
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl
