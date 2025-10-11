@@ -7,7 +7,7 @@ export interface CartItem {
   name: string;
   price: number;
   quantity: number;
-  image?: string;
+  image: string;
 }
 
 // 🧠 Define context type
@@ -27,6 +27,7 @@ export const CartContextProvider = ({ children }: { children: ReactNode }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [totalAmount, setTotalAmount] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
+  
 
   // 🧮 Recalculate totals
   useEffect(() => {

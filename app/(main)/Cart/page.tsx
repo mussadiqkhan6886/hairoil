@@ -1,41 +1,14 @@
 "use client";
 
 import { instrumental } from "@/fonts/font";
+import { useCart } from "@/hooks/useCart";
 import Image from "next/image";
-import { useState } from "react";
 
-interface CartItem {
-  id: number;
-  name: string;
-  price: number;
-  quantity: number;
-  image: string;
-}
+
 
 export default function CartPage() {
-  const [cart, setCart] = useState<CartItem[]>([
-    {
-      id: 1,
-      name: "Herbal Hair Oil",
-      price: 1200,
-      quantity: 1,
-      image: "/oil (1).jpg",
-    },
-    {
-      id: 2,
-      name: "Organic Shampoo",
-      price: 900,
-      quantity: 2,
-      image: "/oil (2).jpg",
-    },
-  ]);
-
   
-  const removeItem = (id: number) => {
-    setCart((prev) => prev.filter((item) => item.id !== id));
-  };
-
-  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const {cart, totalAmount, removeFromCart} = useCart()
 
   return (
     <main className="max-w-6xl mx-auto px-4 py-10 md:py-20">
@@ -66,18 +39,18 @@ export default function CartPage() {
                   </div>
                 </div>
 
-                <Quantity />
 
                 <div className="flex flex-col items-end">
                   <p className="font-semibold text-sm text-nowrap md:text-base">
                     Rs. {item.price * item.quantity}
                   </p>
                   <button
-                    onClick={() => removeItem(item.id)}
+                    onClick={() => removeFromCart(item.id)}
                     className="text-sm text-red-500 mt-1 hover:underline"
-                  >
+                    >
                     Remove
                   </button>
+                    <p className="text-sm text-gray-700 mt-1">Quantity: {item.quantity}</p>
                 </div>
               </div>
             ))}
@@ -88,7 +61,7 @@ export default function CartPage() {
             <h2 className="text-2xl font-semibold mb-4">Order Summary</h2>
             <div className="flex justify-between mb-2">
               <span>Subtotal</span>
-              <span>Rs. {total}</span>
+              <span>Rs. {totalAmount}</span>
             </div>
             <div className="flex justify-between mb-2">
               <span>Shipping</span>
@@ -97,7 +70,7 @@ export default function CartPage() {
             <hr className="my-3" />
             <div className="flex justify-between font-bold text-lg mb-4">
               <span>Total</span>
-              <span>Rs. {total + 250}</span>
+              <span>Rs. {totalAmount + 250}</span>
             </div>
             <button className="w-full py-3 bg-main text-white">
               Proceed to Checkout
