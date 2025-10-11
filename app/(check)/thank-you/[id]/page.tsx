@@ -4,6 +4,14 @@ import Link from "next/link";
 import { FaCheckCircle } from "react-icons/fa";
 import Image from "next/image";
 
+interface ItemType {
+  _id: number
+  images: string[]
+  name: string
+  quantity: number
+  price: number
+
+}
 
 const ThankYouPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
@@ -46,7 +54,7 @@ const ThankYouPage = async ({ params }: { params: Promise<{ id: string }> }) => 
 
           {/* ✅ Items List */}
           <div className="space-y-3">
-            {data.items?.map((item) => (
+            {data.items?.map((item: ItemType) => (
               <div
                 key={item._id}
                 className="flex justify-between items-center border-b pb-2"
