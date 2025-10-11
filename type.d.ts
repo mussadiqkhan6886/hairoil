@@ -15,6 +15,7 @@ interface Product {
   benefits: string[];
   createdAt: string;
   updatedAt: string;
+  discountPrice: number
   __v: number;
 }
 

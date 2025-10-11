@@ -51,9 +51,10 @@ const page = async ({ params }: ProductPageProps) => {
             {product.name}
           </h2>
 
-          <h3 className="text-xl sm:text-2xl text-main font-semibold">
-            PKR {product.price} 
-          </h3>
+         <h3 className="text-gray-700 font-medium">
+          PKR <span className={`${product.isSale ? "line-through text-gray-800 text-sm" : "text-main text-3xl font-semibold"}`}>{product.price}</span>
+          {product.isSale && (<span className="font-semibold inline-block pl-2 text-3xl">{product.discountPrice}</span>)}
+        </h3>
 
           <div><span>Size:</span><span>{product.size}</span></div>
 

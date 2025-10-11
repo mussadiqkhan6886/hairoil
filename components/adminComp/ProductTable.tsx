@@ -6,6 +6,7 @@ import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { FaEdit, FaTrash } from "react-icons/fa";
 import IconButton from '@mui/material/IconButton';
 import axios from 'axios';
+import Link from 'next/link';
 
 interface Product {
   _id: string;
@@ -88,7 +89,7 @@ export default function ProductTable({ products }: ProductTableProps) {
       renderCell: (params) => (
         <Box>
           <IconButton color="primary" onClick={() => handleEdit(params.row._id)}>
-            <FaEdit />
+            <Link href={`/admin-dashboard/update-product/${params.row._id}`}><FaEdit /></Link>
           </IconButton>
           <IconButton color="error" onClick={() => handleDelete(params.row._id)}>
             <FaTrash />
