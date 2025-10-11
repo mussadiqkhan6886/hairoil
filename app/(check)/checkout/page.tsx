@@ -22,7 +22,6 @@ const Checkout = () => {
   const [status, setStatus] = useState("");
   const [loading, setLoading] = useState(false);
 
-  console.log(cart)
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
