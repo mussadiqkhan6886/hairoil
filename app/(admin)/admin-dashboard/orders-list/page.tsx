@@ -4,7 +4,7 @@ export default async function OrdersPage() {
   try {
     // Call your API route
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/order`, {
-      next: {revalidate: 10}, // ensure fresh data every time
+      next: {revalidate: 1}, // ensure fresh data every time
     });
 
     if (!res.ok) {
