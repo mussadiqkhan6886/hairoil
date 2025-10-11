@@ -74,7 +74,7 @@ export const PATCH = async (
       uploadedImages.push((uploadRes as any).secure_url);
     }
 
-   const updateQuery: any = {
+   const updateQuery = {
     $set: {
       name,
       slug,
