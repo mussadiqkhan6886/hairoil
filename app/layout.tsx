@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { lato } from "@/fonts/font";
+import { CartContextProvider } from "@/context/CartContext";
 
 export const metadata: Metadata = {
   title: "Hair oil by iqra",
@@ -17,7 +18,9 @@ export default function RootLayout({
       <body
         className={`${lato.className} antialiased`}
       >
+        <CartContextProvider>
         {children}
+        </CartContextProvider>
       </body>
     </html>
   );
