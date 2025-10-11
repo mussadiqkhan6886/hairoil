@@ -1,3 +1,5 @@
+export const revalidate = 60; // Rebuild page every 60 seconds
+
 import Image from "next/image";
 import React from "react";
 import { instrumental } from "@/fonts/font";
