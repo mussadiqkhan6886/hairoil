@@ -16,6 +16,7 @@ const Checkout = () => {
     city: "",
     postalCode: "",
     notes: "",
+    paymentMethod: ""
   });
 
   const { cart, totalAmount, clearCart } = useCart();

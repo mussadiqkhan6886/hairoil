@@ -34,7 +34,7 @@ const OrderSchema = new Schema({
 
     paymentMethod: {
       type: String,
-      default: "COD",
+      required: true
     },
   },
   { timestamps: true }
