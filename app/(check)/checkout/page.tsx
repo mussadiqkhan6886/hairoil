@@ -16,16 +16,20 @@ const Checkout = () => {
     city: "",
     postalCode: "",
     notes: "",
-    paymentMethod: ""
+    paymentMethod: "cod"
   });
 
   const { cart, totalAmount, clearCart } = useCart();
   const [status, setStatus] = useState("");
   const [loading, setLoading] = useState(false);
+  const [paymentProof, setPaymentProof] = useState<File | null>(null); 
+  const [preview, setPreview] = useState<string | null>(null);
 
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => { if (e.target.files && e.target.files[0]) { setPaymentProof(e.target.files[0]); setPreview(URL.createObjectURL(e.target.files[0])); } };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -53,18 +57,26 @@ const Checkout = () => {
         phone: formData.phone,
         email: formData.email,
       },
-      note: formData.notes || "No Notes",
+      notes: formData.notes || "No Notes",
       shippingAddress: {
         city: formData.city,
         postalCode: formData.postalCode || "No Postal Code",
         address: formData.address,
       },
+      paymentMethod: formData.paymentMethod,
     };
+
+    const formDataToSend = new FormData();
+    if(paymentProof){
+      formDataToSend.append("paymentProof", paymentProof);
+      console.log(paymentProof)
+    }
+    formDataToSend.append("orderData", JSON.stringify(data));
 
     try {
       const res = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/order`,
-        data
+        formDataToSend,{ headers: { "Content-Type": "multipart/form-data" } }
       );
 
       console.log(res)
@@ -160,9 +172,17 @@ const Checkout = () => {
                 className="w-full p-3 border-gray-300 outline-none border rounded-md"
               />
             </div>
-            <p className="text-green-600 text-center border py-2 md:col-span-2">
-              Payment Method: <strong>Cash on Delivery</strong>
-            </p>
+            <div className="text-green-600 text-center border py-2 md:col-span-2">
+              <p>Payment Method</p>
+              <select value={formData.paymentMethod} onChange={handleChange} name="paymentMethod">
+                <option value="cod">Cash on Delivery</option>
+                <option value="easypaisa">Easypaisa</option>
+                <option value="card">Bank Payment</option>
+              </select>
+            </div>
+            {formData.paymentMethod === "easypaisa" && ( <div className=" border border-green-400 bg-green-50 rounded-lg p-4 space-y-3"> <h3 className="font-semibold text-green-800 text-lg">Easypaisa Payment</h3> <p><strong>Number:</strong> 0345-1234567</p> <p><strong>Account Name:</strong> Your Store Name</p> <label className="block text-sm font-medium text-gray-700 mt-2"> Upload Payment Screenshot </label> <input type="file" accept="image/*" onChange={handleFileChange} className="block w-full mt-2 text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border file:border-gray-300 file:bg-gray-200 hover:file:bg-gray-300" /> 
+            {preview && ( <div className="mt-3"> <Image src={preview} alt="Payment proof" width={200} height={200} className="rounded-md border" /> </div> )} </div> )} 
+            {formData.paymentMethod === "card" && ( <div className=" border border-blue-400 bg-blue-50 rounded-lg p-4 space-y-3"> <h3 className="font-semibold text-blue-800 text-lg">Bank Transfer</h3> <p><strong>Bank:</strong> Meezan Bank</p> <p><strong>Account Title:</strong> Your Store Name</p> <p><strong>Account No:</strong> 0123456789012345</p> <label className="block text-sm font-medium text-gray-700 mt-2"> Upload Payment Proof </label> <input type="file" accept="image/*" onChange={handleFileChange} className="block w-full mt-2 text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border file:border-gray-300 file:bg-gray-200 hover:file:bg-gray-300" /> {preview && ( <div className="mt-3"> <Image src={preview} alt="Payment proof" width={200} height={200} className="rounded-md border" /> </div> )} </div> )}
 
             <button
               type="submit"

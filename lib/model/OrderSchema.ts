@@ -33,8 +33,13 @@ const OrderSchema = new Schema({
 
     paymentMethod: {
       type: String,
+      enum: ["cod", "easypaisa", "card"],
+      required: true
     },
-
+    paymentProof: [{
+      type: String,
+      required: function(){return this.paymentMethod !== "cod"} 
+    }]
   },
   { timestamps: true }
 )
