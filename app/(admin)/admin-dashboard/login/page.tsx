@@ -19,7 +19,6 @@ const AdminLogin = () => {
         { email, password },
         { withCredentials: true }
       )
-      console.log(res)
       if (res.data.success) {
         router.replace('/admin-dashboard')
       }

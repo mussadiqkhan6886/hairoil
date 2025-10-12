@@ -126,10 +126,8 @@ export const DELETE = async (_req: NextRequest, {params}: {params: Promise<{id: 
     await connectDB();
     const  id  = (await params).id;
    try {
-    console.log(" Deleting product with ID:", id);
 
     const product = await Product.findByIdAndDelete(id);
-    console.log("Product found:", product);
 
     if (!product) {
       return NextResponse.json({ message: "Product not found" }, { status: 404 });

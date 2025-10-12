@@ -19,7 +19,6 @@ const Page = async ({ params }: ProductPageProps) => {
     }
 
     const data = await res.json();
-    console.log(data)
     const product = data.data;
 
     if (!product) {

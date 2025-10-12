@@ -69,7 +69,6 @@ const Checkout = () => {
     const formDataToSend = new FormData();
     if(paymentProof){
       formDataToSend.append("paymentProof", paymentProof);
-      console.log(paymentProof)
     }
     formDataToSend.append("orderData", JSON.stringify(data));
 
@@ -79,7 +78,6 @@ const Checkout = () => {
         formDataToSend,{ headers: { "Content-Type": "multipart/form-data" } }
       );
 
-      console.log(res)
 
       setStatus("Order placed successfully!");
 

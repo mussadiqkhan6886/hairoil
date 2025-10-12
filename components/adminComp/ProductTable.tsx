@@ -37,7 +37,6 @@ export default function ProductTable({ products }: ProductTableProps) {
   };
 
   const handleDelete = async (id: string) => {
-    console.log(id)
     if (!confirm("Are you sure you want to delete this product?")) return;
     try {
       const res = await axios.delete(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products/${id}`);

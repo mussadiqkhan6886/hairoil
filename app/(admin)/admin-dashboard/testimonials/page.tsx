@@ -11,7 +11,6 @@ export default async function TestimonialsPage() {
     }
 
     const data = await res.json();
-    console.log(data)
     const testimonials = data.testimonials;
 
     return <TestimonialsList testimonials={testimonials} />;

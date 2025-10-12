@@ -13,7 +13,6 @@ const page = async () => {
 
     const data = await res.json();
     const products = data.data; // your API returns { message, data }
-    console.log(data)
     return (
       <main className="px-10 md:px-28 pb-10">
         <h2

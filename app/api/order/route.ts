@@ -55,7 +55,6 @@ export const POST = async (req: NextRequest) => {
           uploadedImages.push(uploadResult.secure_url);
         }
 
-        console.log(uploadedImages)
 
     // 🔹 Create new order in MongoDB
     const newOrder = await order.create({
@@ -68,8 +67,6 @@ export const POST = async (req: NextRequest) => {
       paymentProof: uploadedImages,
       createdAt: new Date(),
     });
-
-    console.log(newOrder)
 
     return NextResponse.json({
       success: true,
