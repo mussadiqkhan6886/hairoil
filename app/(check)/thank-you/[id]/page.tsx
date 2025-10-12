@@ -6,7 +6,7 @@ import Image from "next/image";
 
 interface ItemType {
   _id: number
-  images: string[]
+  image: string
   name: string
   quantity: number
   price: number
@@ -20,7 +20,7 @@ const ThankYouPage = async ({ params }: { params: Promise<{ id: string }> }) => 
   await connectDB()
     const res = await order.findOne({ _id: id });
     const data = JSON.parse(JSON.stringify(res))
-
+    console.log(data)
   return (
     <main className="flex flex-col justify-center items-center min-h-screen bg-gray-50 px-5">
       <div className="bg-white shadow-md rounded-lg p-10 text-center max-w-2xl w-full">
@@ -63,7 +63,7 @@ const ThankYouPage = async ({ params }: { params: Promise<{ id: string }> }) => 
                   <Image
                     width={120}
                     height={120}
-                    src={item.images[0]}
+                    src={item.image}
                     alt={item.name}
                     className="w-12 h-12 rounded-md object-cover"
                   />

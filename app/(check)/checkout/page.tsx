@@ -45,7 +45,7 @@ const Checkout = () => {
         name: item.name,
         price: item.price,
         quantity: item.quantity,
-        images: item.image
+        image: item.image
       })),
       totalPrice: totalAmount + 250,
       userDetails: {

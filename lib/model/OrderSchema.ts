@@ -9,10 +9,9 @@ const OrderSchema = new Schema({
         name: { type: String, required: true },
         price: { type: Number, required: true },
         quantity: { type: Number, required: true },
-        images: [{type: String}]
+        image: {type: String}
       },
     ],
-
     totalPrice: { type: Number, required: true },
     userDetails: {
       fullName: {type: String, required: true},
@@ -34,8 +33,8 @@ const OrderSchema = new Schema({
 
     paymentMethod: {
       type: String,
-      required: true
     },
+
   },
   { timestamps: true }
 )
