@@ -30,7 +30,7 @@ export const POST = async (req: NextRequest) => {
     const orderData = JSON.parse(formData.get("orderData") as string);
     const paymentProofFile = formData.get("paymentProof") as File | null;
 
-    let uploadedImages : string[] = []
+    const uploadedImages : string[] = []
 
     // 🔹 Upload payment proof to Cloudinary if provided
     if (paymentProofFile && typeof paymentProofFile === "object") {
