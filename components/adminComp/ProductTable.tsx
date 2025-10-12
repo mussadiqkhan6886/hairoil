@@ -32,10 +32,6 @@ interface ProductTableProps {
 
 export default function ProductTable({ products }: ProductTableProps) {
 
-  const handleEdit = (id: string) => {
-    console.log("Edit product:", id);
-  };
-
   const handleDelete = async (id: string) => {
     if (!confirm("Are you sure you want to delete this product?")) return;
     try {
@@ -87,7 +83,7 @@ export default function ProductTable({ products }: ProductTableProps) {
       width: 120,
       renderCell: (params) => (
         <Box>
-          <IconButton color="primary" onClick={() => handleEdit(params.row._id)}>
+          <IconButton color="primary">
             <Link href={`/admin-dashboard/update-product/${params.row._id}`}><FaEdit /></Link>
           </IconButton>
           <IconButton color="error" onClick={() => handleDelete(params.row._id)}>
