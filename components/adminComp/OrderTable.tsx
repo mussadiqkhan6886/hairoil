@@ -77,7 +77,7 @@ export default function OrderTable({ orders }: { orders: Order[] }) {
       width: 200,
       renderCell: (params) => (
         <div className="flex flex-col">
-           // eslint-disable-next-line @typescript-eslint/no-explicit-any
+           {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
           {params.value.map((item: any, i: number) => (
             <div key={i} className="flex items-center gap-2 mb-1">
               <Image
