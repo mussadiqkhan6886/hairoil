@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Allow: /collections/
+Allow: /products/
+Allow: /contact/
+
+Disallow: /admin-dashboard/
+Disallow: /checkout/
+Disallow: /thank-you/
+Disallow: /api/
