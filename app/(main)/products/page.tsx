@@ -1,6 +1,14 @@
+import type { Metadata } from 'next';
 import ProductCard from '@/components/ProductCard';
 import { instrumental } from '@/fonts/font';
 import React from 'react';
+
+
+export const metadata: Metadata = {
+  title: "IqzaibEssence Products",
+  description:
+    "Explore IqzaibEssence’s premium range of natural and organic hair oils made from argan, castor, coconut, and rosemary. Designed to promote hair growth, reduce hair fall, and bring back shine naturally — available across Pakistan.",
+}
 
 const page = async () => {
   try {

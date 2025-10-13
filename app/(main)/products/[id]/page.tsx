@@ -3,9 +3,64 @@ import Image from "next/image";
 import React from "react";
 import { instrumental } from "@/fonts/font";
 import ProductQuantityWrapper from "@/components/ProductQuntityWrapper";
+import { Metadata } from "next";
 
 interface ProductPageProps {
   params: Promise<{ id: string }>;
+}
+
+export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
+  const { id } = await params;
+
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products/${id}`, {
+      next: { revalidate: 10 },
+    });
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch product metadata");
+    }
+
+    const data = await res.json();
+    const product = data.data;
+
+    return {
+      title: `${product.name}  IqzaibEssence`,
+      description:
+        product.description?.slice(0, 155) ||
+        `Discover ${product.name} by IqzaibEssence — a premium organic hair oil crafted to nourish your hair and boost natural shine.`,
+      openGraph: {
+        title: `${product.name} | IqzaibEssence`,
+        description:
+          product.description?.slice(0, 155) ||
+          `Discover ${product.name} by IqzaibEssence — a premium organic hair oil crafted to nourish your hair and boost natural shine.`,
+        url: `https://iqzaibessence.com/products/${id}`,
+        type: "website",
+        siteName: "IqzaibEssence",
+        images: product.images?.length
+          ? [{ url: product.images[0], width: 800, height: 800, alt: product.name }]
+          : [],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: `${product.name} | IqzaibEssence`,
+        description:
+          product.description?.slice(0, 155) ||
+          `Explore ${product.name} by IqzaibEssence — a nourishing herbal oil blend for strong, healthy hair.`,
+      },
+      robots: {
+        index: true,
+        follow: true,
+      },
+    };
+  } catch (error) {
+    console.error("Error generating metadata:", error);
+    return {
+      title: "IqzaibEssence | Hair Oil Product",
+      description:
+        "Discover premium organic and herbal hair oils by IqzaibEssence — crafted to promote growth, reduce hair fall, and restore shine.",
+    };
+  }
 }
 
 const Page = async ({ params }: ProductPageProps) => {
